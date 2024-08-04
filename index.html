@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Running World Records</title>
+
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-size: 20px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      text-rendering: optimizeLegibility;
+      background-color: rgb(167,41,33);
+      color: white;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .header {
+      padding: 3em 0;
+    }
+
+    a {
+      color: #fff880;
+    }
+
+    .footer {
+      background: rgb(167,41,33);
+      text-align: center;
+      font-size: 0.8em;
+      margin-top: 4em;
+      padding: 4em 0;
+    }
+
+    figure {
+      margin: 0;
+      padding-bottom: 1.2em;
+    }
+
+    figcaption {
+      font-size: 0.8em;
+      text-align: center;
+      margin-top: 0.5em;
+      color: white;
+    }
+
+    h1 {
+      font-family: 'Lora', Georgia, serif;
+      font-weight: bold;
+      font-size: 3em;
+      line-height: 1.1;
+    }
+
+    .subhead {
+      font-family: 'Lora', Georgia, serif;
+    }
+
+    iframe,
+    img,
+    video {
+      max-width: 100%;
+    }
+
+    p {
+      line-height: 1.6;
+      margin: 0;
+      padding-bottom: 1.2em;
+    }
+
+    ul {
+      margin: 0;
+      padding-bottom: 1em;
+      line-height: 1.6;
+    }
+
+    iframe {
+      padding-bottom: 1.2em;
+    }
+
+    .full-width figure {
+      text-align: center;
+    }
+
+    code {
+      font-family: 'Courier New', monospace;
+      background: #fff880;
+    }
+
+    /* margin on mobile */
+    @media (max-width: 640px) {
+      body {
+        font-size: 18px;
+      }
+
+      .content {
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+      }
+    }
+  </style>
+  <link href="scrolly-styles.css" rel="stylesheet">
+  <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/3.2.0/scrollama.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js"></script>
+</head>
+
+<body>
+  <div class="content">
+    <div class="header">
+      <h1>What Olympic running event do you need to watch to see a new world record?</h1>
+      <p class="subhead">Statisticly speaking.</p>
+    </div>
+    <div class="byline">
+      <p>By <a href="https://github.com/berberebecca/">Rebecca Habtemariam</a></p>
+    </div>
+    <p>Winning Olympic Gold may be one of the biggest archievements possible for a profesisonal athlete. And sometimes
+        they not only triumph over their peers that are competing with them in that moment, but also over the ones that came
+    before them - aka, they break a record. An Olympic one, sometimes even the world record.</p>
+    <p>But how often does one break a world record? In this article we're looking specifically at the runners
+        and their world record progressions. For the records to be included in the following statistics, they
+    need fulfill the following three points:</p>
+      <ul>
+        <li>Record needs to be recognized by the World Athletics, which is the global athletics federation, or
+            the Association of Road Racing Statisticians
+        </li>
+        <li>Needs to be a a Olympic discipline (as of Olympics 2024)</li>
+        <li>Only the automatcally timed records in categories, where they became obligatory at some point</li>
+      </ul>
+    <p>The data has been scraped from Wikipedia (on the 29.07.24), since the tables have been practical to scrape. The information has been
+        cross-checked with data from World Athletics.
+        First, lets look how many times a record within a discipline has been broken - first the male and afterwards
+        the female runners.
+    </p>
+  </div>
+  <section id="scrolly-images" class="scrolly-container">
+    <div class="sticky-thing">
+      <img src="Male_Records.png">
+    </div>
+    <div class="steps-container">
+      <div class="step" id="step1">
+        <div>
+          <p>In the last 20 years there have been multiple world records from male long- as well as
+            short distance runners.</p>
+        </div>
+      </div>
+      <div class="step" id="step2">
+        <p>The most current world records amonst women are all long-distance runners.</p>
+      </div>
+    </div>
+  </section>
+  <div class="content">
+    <p>It has been a long time since a female short track runner was able to break a new world record.
+        The records over 100 and 200 metres sprint are both still from Florence Griffith-Joyner aka
+        Flo-Jo from the year 1988. According to this statistics it would be more likely to see a new
+        female world record within the long-distance runners. Amongst the men, a clear pattern doesn't seem
+        to be very visible yet.
+    </p>
+    <p>The biggest opposing argument when trying to argue with a mean value is a spike - 
+        In this case an athlete who has broken a lot of world records. Their presence (or lack thereof)
+    would heavily influence the meaningfulness of a mean world record breaking number. </p>
+    <p>So, who are the runners with the most world records?</p>
+  </div>
+  <section id="scrolly-images-2" class="scrolly-container">
+    <div class="sticky-thing">
+      <img src="Male_Records_Holders.png">
+    </div>
+    <div class="steps-container">
+      <div class="step" id="step3">
+        <div>
+          <p>At the top is the Ethiopian Haile Gebreselasie, one of the most famous long-distance runners.
+            In fact, the men with the most world records are all long-distance runners.
+          </p>
+          <p>None of them are active athletes.</p>
+        </div>
+      </div>
+      <div class="step" id="step4">
+        <p>For the women, the exeption is right at the top: Marita Koch has not only broken the most
+            running world records withing both genders, but is also the only short-distance runner.</p>
+      </div>
+    </div>
+</section>
+  <div class="content">
+    <p>For men and women there were several athletes who have broken a world record many times, which influences
+        the total "world-record-breakiness" of their respective disciplines. Since none of them are active anymore,
+       it lowers the probability of seeing a new male long-distance records or seeing a new female short- or middle-distance
+       record to a certain extent. But since the majority of the world records were not broken by a few, single people,
+       it still makes sence to calculate how many days it takes on average within a disciple for a world 
+       record to be broken.
+    </p>
+  </div>
+  <div class="full-width">
+    <figure>
+      <img
+        src="Frequency_Men_Women.png">
+      <figcaption>How many days it takes on average for a new world record.</figcaption>
+    </figure>
+  </div>
+  <div class="content">
+    <p>This last one shows that you should be especially excited for the women's 10.000 meter run! But other
+        long-distance runs are also very likely to be record-worthy!
+    </p>
+    <p>Surprisingly, this graph also predicts a high probability for a new record within the women's 
+        short distances. This could be explained by the fact that even though there were not too many 
+        individuals with many world records, many athletes from the former Soviet Union or East Germany
+        were successful in these categories. This could be interpreted as a "semi-spike".
+        Nowadays, either the training style withing the newly formed countries has changed or the relevance of the sport has sunk. 
+    </p>
+    <p>Sports (luckily) can't be predicted, though. But if you like to bet (with your friends and not a company,
+        preferrably), this overview might give you an inkling who's name to shout when the gun shot goes off.
+    </p>
+    <p>This being said: Happy Olympics and good luck to all the athletes!</p>
+  </div>
+  <div class="footer">
+    <div class="content">
+      <p>You can find the code for this template <a href="https://github.com/jsoma/page-templates/">here</a>.</p>
+    </div>
+  </div>
+
+  <script>
+    /*************
+    
+    This is the JavaScript that makes the scrolly work 
+    
+    *************/
+
+    /* 
+    This part attaches a scroll to the element with id="scrolly-images"    
+    */
+    (() => {
+      const scroller = scrollama()
+
+      scroller
+        .setup({
+          parent: document.querySelector("#scrolly-images"),
+          step: ".step",
+          offset: 0.6,
+        })
+        .onStepEnter(function ({ element, index, direction }) {
+          const event = new CustomEvent("stepin", { detail: { direction: direction } })
+          element.dispatchEvent(event)
+        })
+        .onStepExit(function ({ element, index, direction }) {
+          const event = new CustomEvent("stepout", { detail: { direction: direction } })
+          if (direction === "up" && element.previousElementSibling) {
+            const event = new CustomEvent("stepin", { detail: { direction: direction } })
+            element.previousElementSibling.dispatchEvent(event)
+          }
+        })
+
+      window.addEventListener("resize", scroller.resize)
+    })()
+
+    /*
+    This part sets up your actions. In this case, it's changing the image in the scrolly container.
+    */
+    d3.select("#step1").on('stepin', (e) => {
+      d3.select(e.target.closest(".scrolly-container")).select("img").attr("src", "Male_Records.png")
+    })
+
+    d3.select("#step2").on('stepin', (e) => {
+      d3.select(e.target.closest(".scrolly-container")).select("img").attr("src", "Female_Records_New.png")
+    })
+
+    // d3.select("#step5").on('stepin', (e) => {
+    //   d3.select(e.target.closest(".scrolly-container")).select("img").attr("src", "Frequency_Men_Women.png")
+    // })
+  </script>
+  <style>
+    /* Change this to adjust the padding between steps */
+    .step {
+      margin-bottom: 50vh;
+    }
+  </style>
+
+  <!-- Adding a second scroller for the second image scrolling part -->
+ 
+  <script>
+  (() => {
+        const scroller = scrollama()
+  
+        scroller
+          .setup({
+            parent: document.querySelector("#scrolly-images-2"),
+            step: ".step",
+            offset: 0.6
+          })
+          .onStepEnter(function ({ element, index, direction }) {
+            const event = new CustomEvent("stepin", { detail: { direction: direction } })
+            element.dispatchEvent(event)
+          })
+          .onStepExit(function ({ element, index, direction }) {
+            const event = new CustomEvent("stepout", { detail: { direction: direction } })
+            if (direction === "up" && element.previousElementSibling) {
+              const event = new CustomEvent("stepin", { detail: { direction: direction } })
+              element.previousElementSibling.dispatchEvent(event)
+            }
+          })
+  
+        window.addEventListener("resize", scroller.resize)
+      })()
+  
+      /*
+      This part sets up your actions. In this case, it's changing the image in the scrolly container.
+      */
+      d3.select("#step3").on('stepin', (e) => {
+      d3.select(e.target.closest(".scrolly-container")).select("img").attr("src", "Male_Records_Holders.png")
+    })
+
+    d3.select("#step4").on('stepin', (e) => {
+      d3.select(e.target.closest(".scrolly-container")).select("img").attr("src", "Female_Record_Holders.png")
+    })
+
+    </script>
+    <style>
+      /* Change this to adjust the padding between steps */
+      .step {
+        margin-bottom: 70vh;
+      }
+    </style>
+
+</body>
+
+</html>
